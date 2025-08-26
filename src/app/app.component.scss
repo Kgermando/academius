@@ -1,0 +1,17 @@
+/* Styles spécifiques au composant principal */
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main-content {
+  min-height: calc(100vh - 160px);
+  padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px;
+  }
+}

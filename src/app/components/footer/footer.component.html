@@ -1,0 +1,119 @@
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Logo et description -->
+        <div class="footer-brand">
+          <div class="footer-logo" (click)="scrollToTop()">
+            <h3 class="logo-text">Academius</h3>
+            <span class="logo-tagline">Ensemble pour un avenir meilleur</span>
+          </div>
+          <p class="footer-description">
+            Nous accompagnons les entreprises dans leur transformation avec des services 
+            multi-disciplines d'excellence. Notre expertise au service de votre réussite.
+          </p>
+          
+          <!-- Réseaux sociaux -->
+          <div class="footer-social">
+            <h4 class="social-title">Suivez-nous</h4>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Liens du footer -->
+        <div class="footer-links">
+          <div 
+            *ngFor="let section of footerSections; let i = index" 
+            class="footer-section"
+            [style.animation-delay.ms]="i * 100">
+            <h4 class="section-title">{{ section.title }}</h4>
+            <ul class="section-links">
+              <li *ngFor="let link of section.links" class="link-item">
+                <a 
+                  [href]="link.url" 
+                  class="footer-link"
+                  (click)="link.url.startsWith('#') ? scrollToSection(link.url) : null">
+                  {{ link.label }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-newsletter">
+        <div class="newsletter-content">
+          <div class="newsletter-text">
+            <h3 class="newsletter-title">Restez informé</h3>
+            <p class="newsletter-description">
+              Recevez nos dernières actualités, conseils et insights directement dans votre boîte mail.
+            </p>
+          </div>
+          <div class="newsletter-form">
+            <div class="input-group">
+              <input 
+                type="email" 
+                placeholder="Votre adresse email" 
+                class="newsletter-input"
+                aria-label="Adresse email pour la newsletter">
+              <button type="submit" class="newsletter-btn">
+                <i class="fas fa-paper-plane"></i>
+                <span class="btn-text">Rejoignez-nous</span>
+              </button>
+            </div>
+            <p class="newsletter-note">
+              En vous abonnant, vous acceptez de recevoir nos communications marketing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer bottom -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-content">
+        <div class="copyright">
+          <p>&copy; {{ currentYear }} Academius. Tous droits réservés.</p>
+        </div>
+        
+        <div class="footer-info">
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <span>+243 1 23 45 67 89</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <span>contact&#64;academius.com</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Kinshasa, RDC</span>
+          </div>
+        </div>
+
+        <button class="back-to-top" (click)="scrollToTop()" aria-label="Retour en haut">
+          <i class="fas fa-chevron-up"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>

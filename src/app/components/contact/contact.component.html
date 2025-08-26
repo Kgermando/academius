@@ -1,0 +1,214 @@
+<section id="contact" class="contact section bg-gray-50">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2 class="section-title">
+        Contactez-<span class="text-primary">nous</span>
+      </h2>
+      <p class="section-subtitle">
+        Prêt à transformer votre entreprise ? Parlons de votre projet et découvrons 
+        ensemble comment nous pouvons vous accompagner vers le succès.
+      </p>
+    </div>
+
+    <div class="contact-content">
+      <!-- Informations de contact -->
+      <div class="contact-info">
+        <h3 class="info-title">Restons en contact</h3>
+        <p class="info-subtitle">
+          Notre équipe est là pour répondre à toutes vos questions et vous accompagner 
+          dans la réalisation de vos projets.
+        </p>
+
+        <div class="info-grid">
+          <div 
+            *ngFor="let info of contactInfo; let i = index" 
+            class="info-card"
+            [style.animation-delay.ms]="i * 100">
+            <div class="info-icon">
+              <i [class]="info.icon"></i>
+            </div>
+            <div class="info-content">
+              <h4 class="info-card-title">{{ info.title }}</h4>
+              <div class="info-details">
+                <p *ngFor="let detail of info.details" class="info-detail">
+                  {{ detail }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <h4 class="social-title">Suivez-nous</h4>
+          <div class="social-icons">
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulaire de contact -->
+      <div class="contact-form-wrapper">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+          <div class="form-header">
+            <h3 class="form-title">Donnez vie à vos ambitions</h3>
+            <p class="form-subtitle">
+              Partagez votre vision avec nous et découvrons ensemble comment la transformer en succès concret.
+            </p>
+          </div>
+
+          <div class="form-grid">
+            <!-- Prénom -->
+            <div class="form-group">
+              <label for="firstName" class="form-label">Prénom *</label>
+              <input
+                type="text"
+                id="firstName"
+                formControlName="firstName"
+                class="form-input"
+                [class.error]="getFieldError('firstName')"
+                placeholder="Votre prénom">
+              <span *ngIf="getFieldError('firstName')" class="error-message">
+                {{ getFieldError('firstName') }}
+              </span>
+            </div>
+
+            <!-- Nom -->
+            <div class="form-group">
+              <label for="lastName" class="form-label">Nom *</label>
+              <input
+                type="text"
+                id="lastName"
+                formControlName="lastName"
+                class="form-input"
+                [class.error]="getFieldError('lastName')"
+                placeholder="Votre nom">
+              <span *ngIf="getFieldError('lastName')" class="error-message">
+                {{ getFieldError('lastName') }}
+              </span>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+              <label for="email" class="form-label">Email *</label>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                class="form-input"
+                [class.error]="getFieldError('email')"
+                placeholder="votre&#64;email.com">
+              <span *ngIf="getFieldError('email')" class="error-message">
+                {{ getFieldError('email') }}
+              </span>
+            </div>
+
+            <!-- Téléphone -->
+            <div class="form-group">
+              <label for="phone" class="form-label">Téléphone *</label>
+              <input
+                type="tel"
+                id="phone"
+                formControlName="phone"
+                class="form-input"
+                [class.error]="getFieldError('phone')"
+                placeholder="+33 1 23 45 67 89">
+              <span *ngIf="getFieldError('phone')" class="error-message">
+                {{ getFieldError('phone') }}
+              </span>
+            </div>
+
+            <!-- Entreprise -->
+            <div class="form-group full-width">
+              <label for="company" class="form-label">Entreprise</label>
+              <input
+                type="text"
+                id="company"
+                formControlName="company"
+                class="form-input"
+                placeholder="Nom de votre entreprise">
+            </div>
+
+            <!-- Service -->
+            <div class="form-group full-width">
+              <label for="service" class="form-label">Service souhaité *</label>
+              <select
+                id="service"
+                formControlName="service"
+                class="form-select"
+                [class.error]="getFieldError('service')">
+                <option value="">Sélectionnez un service</option>
+                <option value="conseil-strategique">Conseil Stratégique</option>
+                <option value="transformation-digitale">Transformation Digitale</option>
+                <option value="formation-developpement">Formation & Développement</option>
+                <option value="gestion-projet">Gestion de Projet</option>
+                <option value="analyse-data">Analyse & Data</option>
+                <option value="innovation-rd">Innovation & R&D</option>
+                <option value="autre">Autre</option>
+              </select>
+              <span *ngIf="getFieldError('service')" class="error-message">
+                {{ getFieldError('service') }}
+              </span>
+            </div>
+
+            <!-- Message -->
+            <div class="form-group full-width">
+              <label for="message" class="form-label">Message *</label>
+              <textarea
+                id="message"
+                formControlName="message"
+                class="form-textarea"
+                [class.error]="getFieldError('message')"
+                rows="5"
+                placeholder="Décrivez votre projet et vos besoins..."></textarea>
+              <span *ngIf="getFieldError('message')" class="error-message">
+                {{ getFieldError('message') }}
+              </span>
+            </div>
+          </div>
+
+          <div class="form-footer">
+            <button
+              type="submit"
+              class="btn btn-primary btn-lg submit-btn"
+              [disabled]="isSubmitting"
+              [class.loading]="isSubmitting">
+              <span *ngIf="!isSubmitting" class="btn-content">
+                <i class="fas fa-paper-plane"></i>
+                Envoyer le message
+              </span>
+              <span *ngIf="isSubmitting" class="btn-content">
+                <i class="fas fa-spinner fa-spin"></i>
+                Envoi en cours...
+              </span>
+            </button>
+            
+            <p class="form-note">
+              * Champs obligatoires. Vos données sont protégées et ne seront jamais partagées.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Map placeholder -->
+    <div class="map-section">
+      <h3 class="map-title text-center">Notre localisation</h3>
+      <div class="map-placeholder">
+        <i class="fas fa-map-marked-alt"></i>
+        <p>Carte interactive</p>
+        <span>123 Avenue des Champs-Élysées, 75008 Paris</span>
+      </div>
+    </div>
+  </div>
+</section>

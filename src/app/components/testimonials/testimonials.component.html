@@ -1,0 +1,147 @@
+<section id="testimonials" class="testimonials section">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2 class="section-title">
+        Ce que disent nos <span class="text-primary">clients</span>
+      </h2>
+      <p class="section-subtitle">
+        Découvrez les témoignages de nos clients qui nous font confiance 
+        et partagent leur expérience de collaboration avec Academius.
+      </p>
+    </div>
+
+    <div class="testimonials-container">
+      <!-- Navigation buttons -->
+      <button 
+        class="nav-btn nav-btn-prev" 
+        (click)="previousTestimonial()"
+        aria-label="Témoignage précédent">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      
+      <button 
+        class="nav-btn nav-btn-next" 
+        (click)="nextTestimonial()"
+        aria-label="Témoignage suivant">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <!-- Testimonials slider -->
+      <div class="testimonials-slider">
+        <div 
+          class="testimonials-track"
+          [style.transform]="'translateX(-' + (currentTestimonial * 100) + '%)'">
+          
+          <div 
+            *ngFor="let testimonial of testimonials; let i = index" 
+            class="testimonial-slide"
+            [class.active]="i === currentTestimonial">
+            
+            <div class="testimonial-card">
+              <div class="testimonial-content">
+                <div class="quote-icon">
+                  <i class="fas fa-quote-left"></i>
+                </div>
+                
+                <blockquote class="testimonial-text">
+                  {{ testimonial.content }}
+                </blockquote>
+                
+                <div class="testimonial-rating">
+                  <span 
+                    *ngFor="let star of getStars(testimonial.rating); let j = index"
+                    class="star"
+                    [class.filled]="star">
+                    <i class="fas fa-star"></i>
+                  </span>
+                </div>
+              </div>
+              
+              <div class="testimonial-author">
+                <div class="author-image">
+                  <div class="image-placeholder">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                
+                <div class="author-info">
+                  <h4 class="author-name">{{ testimonial.name }}</h4>
+                  <p class="author-position">{{ testimonial.position }}</p>
+                  <p class="author-company">{{ testimonial.company }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination dots -->
+      <div class="testimonials-pagination">
+        <button
+          *ngFor="let testimonial of testimonials; let i = index"
+          class="pagination-dot"
+          [class.active]="i === currentTestimonial"
+          (click)="goToTestimonial(i)"
+          [attr.aria-label]="'Aller au témoignage ' + (i + 1)">
+        </button>
+      </div>
+    </div>
+
+    <!-- Statistics -->
+    <div class="testimonials-stats">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-smile"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Clients satisfaits</span>
+          </div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Prix remportés</span>
+          </div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Projets réalisés</span>
+          </div>
+        </div>
+        
+        <div class="stat-item">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-content">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Experts mobilisés</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to action -->
+    <div class="testimonials-cta text-center">
+      <h3 class="cta-title">Rejoignez nos clients satisfaits</h3>
+      <p class="cta-subtitle">
+        Découvrez comment nous pouvons vous aider à atteindre vos objectifs
+      </p>
+      <button class="btn btn-primary btn-lg" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+        <i class="fas fa-magic"></i>
+        Créons l'exceptionnel
+      </button>
+    </div>
+  </div>
+</section>

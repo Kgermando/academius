@@ -1,0 +1,338 @@
+<section id="home" class="hero">
+  <div class="hero-background">
+    <div class="hero-overlay"></div>
+  </div>
+  
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text fade-in-up">
+        <h1 class="hero-title">
+          <span class="highlight">Ensemble</span> pour un 
+          <span class="gradient-text">avenir meilleur</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          Academius vous accompagne avec des services multi-disciplines d'excellence. 
+          Notre expertise au service de votre réussite, pour construire ensemble un futur prospère et durable.
+        </p>
+        
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Clients satisfaits</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Années d'expérience</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Projets réalisés</span>
+          </div>
+        </div>
+        
+        <div class="hero-actions">
+          <button class="btn btn-primary" (click)="scrollToSection('contact')">
+            <i class="fas fa-rocket"></i>
+           Contactez-nous
+          </button>
+          <button class="btn btn-secondary" (click)="scrollToSection('services')">
+            <i class="fas fa-play"></i>
+            Découvrir nos services
+          </button>
+        </div>
+      </div>
+      
+      <div class="hero-image fade-in">
+        <div class="hero-graphic">
+          <div class="floating-card card-1">
+            <i class="fas fa-chart-line"></i>
+            <span>Croissance</span>
+          </div>
+          <div class="floating-card card-2">
+            <i class="fas fa-lightbulb"></i>
+            <span>Innovation</span>
+          </div>
+          <div class="floating-card card-3">
+            <i class="fas fa-users"></i>
+            <span>Collaboration</span>
+          </div>
+          <div class="hero-circle circle-1"></div>
+          <div class="hero-circle circle-2"></div>
+          <div class="hero-circle circle-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator" (click)="scrollToSection('services')">
+    <div class="scroll-mouse">
+      <div class="scroll-wheel"></div>
+    </div>
+    <span class="scroll-text">Découvrez plus</span>
+  </div>
+  
+  <!-- Hero to Services Transition -->
+  <div class="hero-transition">
+    <div class="transition-pattern">
+      <div class="pattern-dot"></div>
+      <div class="pattern-dot"></div>
+      <div class="pattern-dot"></div>
+      <div class="pattern-dot"></div>
+      <div class="pattern-dot"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Section Services -->
+<section id="services" class="services">
+  <div class="services-separator">
+    <div class="separator-line"></div>
+    <div class="separator-icon">
+      <i class="fas fa-diamond"></i>
+    </div>
+    <div class="separator-line"></div>
+  </div>
+  
+  <div class="container">
+    <div class="section-header">
+      <div class="header-decoration">
+        <span class="decoration-dot"></span>
+        <span class="decoration-dot"></span>
+        <span class="decoration-dot"></span>
+      </div>
+      <span class="section-tag">
+        <i class="fas fa-cogs"></i>
+        Nos Services
+      </span>
+      <h2 class="section-title">
+        Excellence et <span class="highlight">Innovation</span> 
+        <br>à votre service
+      </h2>
+      <div class="title-underline">
+        <span class="underline-main"></span>
+        <span class="underline-accent"></span>
+      </div>
+      <p class="section-description">
+        Découvrez notre gamme complète de services professionnels, 
+        conçus pour accompagner votre croissance et maximiser votre potentiel.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card" 
+           *ngFor="let service of services; trackBy: trackByServiceId"
+           [style.--service-color]="service.color">
+        <div class="service-icon">
+          <i [class]="service.icon"></i>
+        </div>
+        
+        <div class="service-content">
+          <h3 class="service-title">{{ service.title }}</h3>
+          <p class="service-description">{{ service.description }}</p>
+          
+          <ul class="service-features">
+            <li *ngFor="let feature of service.features" class="feature-item">
+              <i class="fas fa-check-circle"></i>
+              <span>{{ feature }}</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="service-footer">
+          <button class="btn btn-outline" (click)="scrollToSection('contact')">
+            <i class="fas fa-arrow-right"></i>
+            En savoir plus
+          </button>
+        </div>
+      </div>
+    </div> 
+  </div>
+</section>
+
+<!-- Section Contact -->
+<section id="contact" class="contact">
+  <div class="contact-separator">
+    <div class="separator-wave">
+      <svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.8" />
+            <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.8" />
+          </linearGradient>
+        </defs>
+        <path d="M0,64L48,74.7C96,85,192,107,288,112C384,117,480,107,576,96C672,85,768,75,864,80C960,85,1056,107,1152,112L1200,117L1200,0L1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z" fill="url(#gradient1)"/>
+      </svg>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="section-header">
+          <div class="header-decoration left-aligned">
+            <span class="decoration-line"></span>
+            <span class="decoration-circle"></span>
+            <span class="decoration-line"></span>
+          </div>
+          <span class="section-tag contact-tag">
+            <i class="fas fa-handshake"></i>
+            Prenons Contact
+          </span>
+          <h2 class="section-title left-aligned">
+            Parlons de votre <span class="highlight">projet</span>
+            <br>ensemble
+          </h2>
+          <div class="title-underline left-aligned">
+            <span class="underline-main"></span>
+            <span class="underline-accent"></span>
+          </div>
+          <p class="section-description left-aligned">
+            Notre équipe d'experts est prête à vous accompagner dans tous vos défis. 
+            Contactez-nous pour discuter de vos besoins et transformer vos idées en réalité.
+          </p>
+        </div>
+
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Notre adresse</h4>
+              <p>123 Avenue de la justice<br> Kinshasa, RDC</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Téléphone</h4>
+              <p>+243 23 45 67 89</p>
+            </div>
+          </div>
+
+          <div class="contact-item mb-5">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h4>Email</h4>
+              <p>contact&#64;academius.net</p>
+            </div>
+          </div> 
+        </div>
+      </div>
+
+      <div class="contact-form-container">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">Prénom *</label>
+              <input 
+                type="text" 
+                id="firstName"
+                formControlName="firstName"
+                placeholder="Votre prénom"
+                [class.error]="getFieldError('firstName')">
+              <span class="error-message" *ngIf="getFieldError('firstName')">
+                {{ getFieldError('firstName') }}
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="lastName">Nom *</label>
+              <input 
+                type="text" 
+                id="lastName"
+                formControlName="lastName"
+                placeholder="Votre nom"
+                [class.error]="getFieldError('lastName')">
+              <span class="error-message" *ngIf="getFieldError('lastName')">
+                {{ getFieldError('lastName') }}
+              </span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input 
+                type="email" 
+                id="email"
+                formControlName="email"
+                placeholder="votre.email&#64;exemple.com"
+                [class.error]="getFieldError('email')">
+              <span class="error-message" *ngIf="getFieldError('email')">
+                {{ getFieldError('email') }}
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Téléphone *</label>
+              <input 
+                type="tel" 
+                id="phone"
+                formControlName="phone"
+                placeholder="+243 23 45 67 89"
+                [class.error]="getFieldError('phone')">
+              <span class="error-message" *ngIf="getFieldError('phone')">
+                {{ getFieldError('phone') }}
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Entreprise</label>
+            <input 
+              type="text" 
+              id="company"
+              formControlName="company"
+              placeholder="Nom de votre entreprise (optionnel)">
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Sujet *</label>
+            <select id="subject" formControlName="subject" [class.error]="getFieldError('subject')">
+              <option value="">Sélectionnez un sujet</option>
+              <option value="conseil">Conseil Stratégique</option>
+              <option value="formation">Formation & Développement</option>
+              <option value="support">Support Technique</option>
+              <option value="consulting">Consulting Digital</option>
+              <option value="projet">Gestion de Projet</option>
+              <option value="audit">Audit & Optimisation</option>
+              <option value="autre">Autre demande</option>
+            </select>
+            <span class="error-message" *ngIf="getFieldError('subject')">
+              {{ getFieldError('subject') }}
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea 
+              id="message"
+              formControlName="message"
+              rows="5"
+              placeholder="Décrivez votre projet ou votre besoin..."
+              [class.error]="getFieldError('message')"></textarea>
+            <span class="error-message" *ngIf="getFieldError('message')">
+              {{ getFieldError('message') }}
+            </span>
+          </div>
+
+          <button 
+            type="submit" 
+            class="btn btn-primary btn-lg w-full"
+            [class.loading]="contactForm.invalid">
+            <i class="fas fa-paper-plane"></i>
+            Envoyer le message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

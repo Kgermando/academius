@@ -1,0 +1,73 @@
+<header class="header" [class.scrolled]="isScrolled">
+  <div class="container">
+    <nav class="navbar">
+      <!-- Logo -->
+      <div class="logo" routerLink="/">
+        <h2 class="logo-text">Academius</h2>
+        <span class="logo-tagline">Ensemble pour un avenir meilleur</span>
+      </div>
+
+      <!-- Navigation Desktop -->
+      <ul class="nav-menu desktop-menu">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/services" routerLinkActive="active">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active">À Propos</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+        </li>
+      </ul>
+
+      <!-- CTA Button -->
+      <div class="nav-cta desktop-only">
+        <button class="btn btn-primary" routerLink="/contact">
+          <i class="fas fa-rocket"></i>
+          Contactez-nous
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        class="mobile-menu-btn mobile-only"
+        (click)="toggleMobileMenu()"
+        [class.active]="isMobileMenuOpen"
+        aria-label="Toggle mobile menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" [class.active]="isMobileMenuOpen">
+      <ul class="mobile-nav-menu">
+        <li class="mobile-nav-item">
+          <a class="mobile-nav-link" routerLink="/" (click)="closeMobileMenu()">Accueil</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a class="mobile-nav-link" routerLink="/services" (click)="closeMobileMenu()">Services</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a class="mobile-nav-link" routerLink="/about" (click)="closeMobileMenu()">À Propos</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a class="mobile-nav-link" routerLink="/testimonials" (click)="closeMobileMenu()">Témoignages</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a class="mobile-nav-link" routerLink="/contact" (click)="closeMobileMenu()">Contact</a>
+        </li>
+        <li class="mobile-nav-item">
+          <button class="btn btn-primary w-full" routerLink="/contact" (click)="closeMobileMenu()">
+            <i class="fas fa-handshake"></i>
+            Parlons de votre projet
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
